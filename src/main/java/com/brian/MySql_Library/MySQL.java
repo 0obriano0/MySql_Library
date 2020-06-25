@@ -313,6 +313,15 @@ public class MySQL {
 	}
 	
 	/**
+	 * 檢查是否有連接資料庫
+	 * @return true or false
+	 */
+	public boolean isopen() {
+		if(conn==null) return false;
+		return true;
+	}
+	
+	/**
 	 * 傳送查詢相關指令 並轉換成 list map 模式
 	 * db 使用內部設定好的
 	 * 如果要更改請使用 setdb("database")
