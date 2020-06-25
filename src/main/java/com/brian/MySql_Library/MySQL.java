@@ -98,7 +98,11 @@ public class MySQL {
 			if(!this.SelectDataBase()) CreateDataBase(this.db);
 		}catch(SQLException se){
 			//Handle errors for JDBC
-			se.printStackTrace();
+			if(se.getClass().getSimpleName().equals("CommunicationsException")) {
+				conn = null;
+				print("Connecting fail");
+			}else
+				se.printStackTrace();
 			return false;
 		}catch(Exception e){
 			//Handle errors for Class.forName
